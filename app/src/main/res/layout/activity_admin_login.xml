@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.englishlearningapp.mvvm.viewmodels.LoginViewModel" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_marginTop="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@drawable/Admin_login"/>
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/purple_200"
+            android:layout_marginVertical="30dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Admin login"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_til_email"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                app:addTextChangedListener="@{viewModel.emailTextWatcher}"
+                android:id="@+id/login_edt_email"
+                android:textSize="18sp"
+                android:background="@color/white"
+                android:hint="Tên đăng nhập"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            app:passwordToggleEnabled="true"
+            android:id="@+id/login_til_pass"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                app:addTextChangedListener="@{viewModel.passTextWatcher}"
+                android:inputType="textPassword"
+                android:id="@+id/login_edt_pass"
+                android:textSize="18sp"
+                android:background="@color/white"
+                android:hint="Mật khẩu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="20dp"
+            android:onClick="@{viewModel::onLoginClicked}"
+            android:id="@+id/login_btn_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đăng nhập"/>
+    </LinearLayout>
+</layout>
