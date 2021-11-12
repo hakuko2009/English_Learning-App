@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/admin_manage_lessons"
+        android:enabled="true"
+        android:icon="@drawable/ic_lesson"
+        android:title="QL bài học"/>
+    <item
+        android:id="@+id/admin_manage_student"
+        android:enabled="true"
+        android:icon="@drawable/ic_student"
+        android:title="QL học viên"/>
+    <item
+        android:id="@+id/admin_manage_teacher"
+        android:enabled="true"
+        android:icon="@drawable/ic_teacher"
+        android:title="QL giáo viên"/>
+    <item
+        android:id="@+id/admin_account"
+        android:enabled="true"
+        android:icon="@drawable/ic_account"
+        android:title="Trang cá nhân"/>
+</menu>

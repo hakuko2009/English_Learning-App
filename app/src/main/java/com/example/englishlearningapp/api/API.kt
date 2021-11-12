@@ -35,24 +35,24 @@ interface API {
     fun studentLogin(
         @Field("hv_username") username :String,
         @Field("hv_password") password :String
-    ): Call<Login>
+    ): Call<StudentLogin>
 
     @POST("/admin/login")
     @FormUrlEncoded
     fun adminLogin(
         @Field("admin_username") username :String,
         @Field("admin_password") password :String
-    ): Call<Login>
+    ): Call<AdminLogin>
 
     @GET("/baihoc")
     fun getAllLessons(
         @Header("Authorization") token: String
-    ): Call<List<Lesson>>
+    ): Call<String>
 
     @GET("/baihoc/{maBaiHoc}")
     fun getLessonDetail(
         @Path("maBaiHoc") maBaiHoc: String
-    ): Call<List<Lesson>>
+    ): Call<String>
 
     @GET("/danhmucbaihoc")
     fun getAllCategories(

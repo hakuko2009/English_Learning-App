@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.englishlearningapp.mvvm.viewmodels.LoginViewModel" />
+            type="com.example.englishlearningapp.mvvm.viewmodels.AdminLoginViewModel" />
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:elevation="8dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp"
+    android:orientation="horizontal"
+    android:layout_marginRight="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/Admin_login">
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginVertical="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/hv_username"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:text="Tài khoản: "
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:id="@+id/hv_name"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:text="Họ và tên: "
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:id="@+id/hv_email"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:text="Email"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:id="@+id/hv_registerDay"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:text="Ngay dang ky: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold">
+        </TextView>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
