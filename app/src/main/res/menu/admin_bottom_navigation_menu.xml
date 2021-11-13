@@ -6,18 +6,13 @@
         android:icon="@drawable/ic_lesson"
         android:title="QL bài học"/>
     <item
-        android:id="@+id/admin_manage_student"
+        android:id="@+id/admin_manage_students"
         android:enabled="true"
         android:icon="@drawable/ic_student"
         android:title="QL học viên"/>
     <item
-        android:id="@+id/admin_manage_teacher"
+        android:id="@+id/admin_manage_teachers"
         android:enabled="true"
         android:icon="@drawable/ic_teacher"
         android:title="QL giáo viên"/>
-    <item
-        android:id="@+id/admin_account"
-        android:enabled="true"
-        android:icon="@drawable/ic_account"
-        android:title="Trang cá nhân"/>
 </menu>

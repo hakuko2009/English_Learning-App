@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.englishlearningapp">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".mvvm.views.admin.AdminLoginActivity"/>
+        <activity android:name=".mvvm.views.admin.AdminMainActivity"/>
+        <activity android:name=".mvvm.views.student.StudentLoginActivity"/>
+        <activity android:name=".mvvm.views.student.StudentMainActivity"/>
+        <activity android:name=".mvvm.views.student.main.LessonDetailActivity"/>
     </application>
 
 </manifest>

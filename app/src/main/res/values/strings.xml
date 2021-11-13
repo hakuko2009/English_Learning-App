@@ -9,7 +9,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="student_role">Đăng nhâp với tư cách học viên</string>
+    <string name="student_role">Đăng nhập với tư cách học viên</string>
     <string name="admin_role">Đăng nhập với tư cách admin</string>
-    <string name="choose_role">Vui lòng đăng nhâp để thực hiện các chức năng khác:</string>
+    <string name="choose_role">Vui lòng đăng nhập để thực hiện các chức năng khác:</string>
 </resources>

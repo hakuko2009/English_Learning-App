@@ -1,11 +1,10 @@
 package com.example.englishlearningapp.adapter
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.englishlearningapp.R
 import com.example.englishlearningapp.`interface`.OnClickListener
 import com.example.englishlearningapp.data.models.Lesson
 import com.example.englishlearningapp.databinding.LessonCardViewBinding
@@ -13,18 +12,13 @@ import com.example.englishlearningapp.databinding.LessonCardViewBinding
 class LessonAdapter(var lessonList: List<Lesson>): RecyclerView.Adapter<LessonAdapter.MyViewHolder>() {
 
     private lateinit var onClickListener: OnClickListener
-    lateinit var binding: LessonCardViewBinding
-
     fun setOnClickListener(onClickListener: OnClickListener) {
         this.onClickListener = onClickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val v: View = LayoutInflater.from(parent.context).inflate(R.layout.lesson_card_view, parent, false)
-        binding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-                                        R.layout.lesson_card_view, parent, false)
-
-        return MyViewHolder(onClickListener, v)
+        val binding = LessonCardViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -32,12 +26,22 @@ class LessonAdapter(var lessonList: List<Lesson>): RecyclerView.Adapter<LessonAd
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        binding.lesson = lessonList[position]
-
         holder.itemView.setOnClickListener{
             onClickListener.onClick(holder.itemView, lessonList[position].lessonId)
         }
+        holder.bind(lessonList[position])
     }
 
-    class MyViewHolder(onClickListener: OnClickListener, itemView: View): RecyclerView.ViewHolder(itemView)
+    class MyViewHolder(private val binding: LessonCardViewBinding): RecyclerView.ViewHolder(binding.root){
+        @SuppressLint("SetTextI18n")
+        fun bind(lesson: Lesson){
+            binding.lessonName.text = lesson.lessonName
+            binding.lessonContent.text = "Nội dung: " + lesson.content
+            binding.lessonScore.text = "Đánh giá: " + lesson.score.toString()
+
+            if(!binding.lessonName.text.isNullOrEmpty()){
+                Log.d("Log not null", binding.lessonName.text.toString())
+            }
+        }
+    }
 }

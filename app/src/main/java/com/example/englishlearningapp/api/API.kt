@@ -8,41 +8,41 @@ interface API {
     @GET("/hocvien")
     fun getAllStudents(
         @Header("Authorization") token: String
-    ): Call<List<Student>>
+    ): Call<String>
 
     @GET("/hocvien/{username}")
     fun getStudentDetail(
         @Path("username") username: String
-    ): Call<Student>
+    ): Call<String>
 
     @GET("/giaovien")
     fun getAllTeachers(
         @Header("Authorization") token: String
-    ): Call<List<Teacher>>
+    ): Call<String>
 
     @GET("/giaovien/tatcabaihoc/{gv_username}")
     fun getAllLessonsByTeacher(
         @Path("gv_username") gv_username: String
-    ): Call<List<Lesson>>
+    ): Call<String>
 
     @GET("/hocvien/{username}")
     fun getTeacherDetail(
         @Path("username") username: String
-    ): Call<Teacher>
+    ): Call<String>
 
     @POST("/hocvien/login")
     @FormUrlEncoded
     fun studentLogin(
-        @Field("hv_username") username :String,
-        @Field("hv_password") password :String
-    ): Call<StudentLogin>
+        @Field("hv_username") username: String,
+        @Field("hv_password") password: String
+    ): Call<String>
 
     @POST("/admin/login")
     @FormUrlEncoded
     fun adminLogin(
-        @Field("admin_username") username :String,
-        @Field("admin_password") password :String
-    ): Call<AdminLogin>
+        @Field("admin_username") username: String,
+        @Field("admin_password") password: String
+    ): Call<String>
 
     @GET("/baihoc")
     fun getAllLessons(
@@ -57,12 +57,17 @@ interface API {
     @GET("/danhmucbaihoc")
     fun getAllCategories(
         @Header("Authorization") token: String
-    ): Call<List<Category>>
+    ): Call<String>
+
+    @GET("/danhmucbaihoc/{maDanhMuc}")
+    fun getCategoryById(
+        @Path("maDanhMuc") categoryId: String
+    ): Call<String>
 
     @GET("/danhmucbaihoc/tatcabaihoc/{maDanhMuc}")
     fun getAllLessonsByCateg(
         @Header("Authorization") token: String,
         @Path("maDanhMuc") maDanhMuc: String
-    ): Call<List<Lesson>>
+    ): Call<String>
 
 }

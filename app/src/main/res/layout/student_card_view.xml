@@ -1,80 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/item"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:elevation="8dp"
-    app:cardElevation="10dp"
-    app:cardCornerRadius="10dp"
-    android:orientation="horizontal"
-    android:layout_marginRight="10dp">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp">
-
-        <ImageView
-            android:id="@+id/photo"
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/Admin_login">
-        </ImageView>
-    </LinearLayout>
-
-    <LinearLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="student"
+            type="com.example.englishlearningapp.data.models.Student" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginVertical="5dp"
-        android:orientation="vertical">
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="6dp"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
 
-        <TextView
-            android:id="@+id/hv_username"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Tài khoản: "
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold">
-        </TextView>
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/destiny">
+            </ImageView>
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/hv_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Họ và tên: "
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold">
-        </TextView>
+            android:layout_marginHorizontal="85dp"
+            android:layout_marginVertical="5dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/hv_email"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:text="Email"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold">
-        </TextView>
-        <TextView
-            android:id="@+id/hv_registerDay"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:text="Ngay dang ky: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold">
-        </TextView>
+            <TextView
+                android:id="@+id/hv_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginVertical="2dp"
+                android:text="Tài khoản: "
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/purple_500"
+                android:textSize="18sp"
+                android:textStyle="bold">
+            </TextView>
 
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/hv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Họ và tên: "
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                android:id="@+id/hv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginVertical="2dp"
+                android:text="Email"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black"
+                android:textSize="16sp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/hv_registerDay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginVertical="2dp"
+                android:text="Ngay dang ky: "
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black"
+                android:textSize="16sp">
+            </TextView>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

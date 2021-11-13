@@ -14,15 +14,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AllLessonViewModel: ViewModel() {
-    val api = Service.createService()
+class ManageLessonsViewModel: ViewModel() {
+    private val api = Service.createService()
     val liveLessonList = MutableLiveData<List<Lesson>>()
     val liveLesson = MutableLiveData<Lesson>()
     val liveCategory = MutableLiveData<Category>()
     val liveTeacher = MutableLiveData<Teacher>()
     val gson = Gson()
 
-    fun getAllLessons(token: String){
+    fun getLessonList(token: String){
         api.getAllLessons(token = "Bearer $token").enqueue(object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response.isSuccessful){

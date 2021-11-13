@@ -18,14 +18,14 @@ class AdminLoginActivity: AppCompatActivity(), LoginResultCallBack {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_login)
         var binding : ActivityAdminLoginBinding = DataBindingUtil
-            .setContentView(this, R.layout.activity_student_login)
+            .setContentView(this, R.layout.activity_admin_login)
         binding.viewModel = ViewModelProvider(this,
             AdminLoginViewModelFactory(this)
         )[AdminLoginViewModel::class.java]
     }
 
     override fun onSuccess(token: String) {
-        Toast.makeText(this,"Đăng nhập thành công!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, AdminMainActivity::class.java)
 
         val sharedF: SharedPreferences = getSharedPreferences("forAdmin", MODE_PRIVATE)

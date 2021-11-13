@@ -1,19 +1,41 @@
 package com.example.englishlearningapp.mvvm.views.student
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.englishlearningapp.R
+import com.example.englishlearningapp.mvvm.views.ChooseRoleActivity
 import com.example.englishlearningapp.mvvm.views.student.main.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class StudentMainActivity: AppCompatActivity() {
     lateinit var lessonFragment: AllLessonsFragment
     lateinit var accountFragment: AccountFragment
-
     private val fm: FragmentManager = supportFragmentManager
     private lateinit var currentFm: Fragment
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.student_toolbar, menu);
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.student_toolbar_logout -> {
+                startActivity(Intent(this, ChooseRoleActivity::class.java))
+            }
+            R.id.student_toolbar_seting -> {
+
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_main)

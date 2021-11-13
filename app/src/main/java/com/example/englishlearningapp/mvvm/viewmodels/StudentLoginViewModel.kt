@@ -10,12 +10,16 @@ import com.example.englishlearningapp.api.API
 import com.example.englishlearningapp.data.models.StudentLogin
 import com.example.englishlearningapp.mvvm.models.LoginModel
 import com.example.englishlearningapp.services.Service
+import com.google.gson.Gson
+import org.json.JSONObject
 import retrofit2.*
 
 class StudentLoginViewModel(private val callBack: LoginResultCallBack): ViewModel() {
     val login: LoginModel = LoginModel("","")
+    val gson = Gson()
+    val loginApi: API = Service.createService()
 
-    val emailTextWatcher: TextWatcher
+    val usernameTextWatcher: TextWatcher
         get() = object: TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -39,32 +43,27 @@ class StudentLoginViewModel(private val callBack: LoginResultCallBack): ViewMode
             override fun afterTextChanged(s: Editable?) {
                 login.password = s.toString()
             }
-
         }
 
     fun onLoginClicked(v: View) {
-        var loginCode = login.validInfor()
-        if(loginCode == 1) {
-            callBack.onError("Mật khẩu không đúng")
-        } else if (loginCode == 2) callBack.onError("Tên đăng nhập không đúng")
-        else if (loginCode == 3) callBack.onError("Tên đăng nhâp và mật khẩu không đúng")
+        loginApi.studentLogin(login.username, login.password).enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Log.d("Login Successfully: ",response.code().toString())
+                if(response.code() == 200){
+                    val resBody = response.body()!!.toString()
+                    val jsonObject = JSONObject(resBody).toString()
+                    val result: StudentLogin = gson.fromJson(jsonObject, StudentLogin::class.java)
 
-        if (loginCode == 4) {
-            val loginApi: API = Service.createService()
-            loginApi.studentLogin(login.username, login.password).enqueue(object : Callback<StudentLogin> {
-                override fun onResponse(call: Call<StudentLogin>, response: Response<StudentLogin>) {
-                    Log.d("Login Successfully: ",response.code().toString())
-                    if(response.code() == 200){
-                        callBack.onSuccess(response.body()?.accessToken.toString())
-                    }else if(response.code() == 401){
-                        callBack.onError("Tên đăng nhập không tồn tại hoặc mật khẩu không chính xác")
-                    }
+                    callBack.onSuccess(result.accessToken.toString())
+                }else if(response.code() == 401){
+                    callBack.onError("Tên đăng nhập không tồn tại hoặc mật khẩu không chính xác")
                 }
-                override fun onFailure(call: Call<StudentLogin>, t: Throwable) {
-                    callBack.onError(t.message!!)
-                }
+            }
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                callBack.onError(t.message!!)
+                Log.d("Login Failed: ", t.message!!)
+            }
+        })
 
-            })
-        }
     }
 }

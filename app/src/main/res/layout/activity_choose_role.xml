@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="200dp"
         tools:ignore="MissingConstraints">
 
         <LinearLayout
