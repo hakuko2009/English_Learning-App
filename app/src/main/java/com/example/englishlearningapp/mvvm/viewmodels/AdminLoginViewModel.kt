@@ -48,7 +48,6 @@ class AdminLoginViewModel(private val callBack: LoginResultCallBack): ViewModel(
         }
 
     fun onLoginClicked(v: View) {
-
         loginApi.adminLogin(login.username, login.password).enqueue(object : Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 Log.d("Login Successfully: ",response.code().toString())
@@ -57,7 +56,7 @@ class AdminLoginViewModel(private val callBack: LoginResultCallBack): ViewModel(
                     val jsonObject = JSONObject(resBody).toString()
                     val result: AdminLogin = gson.fromJson(jsonObject, AdminLogin::class.java)
 
-                    callBack.onSuccess(result.accessToken.toString())
+                    callBack.onSuccess(result.accessToken.toString(), login.username)
                 }else if(response.code() == 401){
                     callBack.onError("Tên đăng nhập không tồn tại hoặc mật khẩu không chính xác")
                 }

@@ -5,6 +5,11 @@ import retrofit2.http.*
 import retrofit2.Call
 
 interface API {
+    @GET("/admin/information/{username}")
+    fun getAdminInfo(
+        @Path("username") username: String
+    ): Call<String>
+
     @GET("/hocvien")
     fun getAllStudents(
         @Header("Authorization") token: String
@@ -25,7 +30,7 @@ interface API {
         @Path("gv_username") gv_username: String
     ): Call<String>
 
-    @GET("/hocvien/{username}")
+    @GET("/giaovien/{username}")
     fun getTeacherDetail(
         @Path("username") username: String
     ): Call<String>
@@ -70,4 +75,39 @@ interface API {
         @Path("maDanhMuc") maDanhMuc: String
     ): Call<String>
 
+    @FormUrlEncoded
+    @PUT("/baihoc/{maBaiHoc}")
+    fun updateLesson(
+        @Path("maBaiHoc") maBaiHoc: String?,
+        @Field("MaBaiHoc") lessonId: String?,
+        @Field("TenBaiHoc") lessonName: String?,
+        @Field("MaDanhMuc") categoryId: String?,
+        @Field("GV_username") teacherId: String?,
+        @Field("NoiDungBaiHoc") lessonContent: String?,
+        @Field("NgayTao") createdDay: String?,
+        @Field("MucDanhGiaTB") score: Float?
+    ): Call<String>
+
+    @FormUrlEncoded
+    @PUT("/hocvien/{username}")
+    fun updateStudent(
+        @Path("username") username: String?,
+        @Field("hv_password") hv_password: String?,
+        @Field("tenhv") tenhv: String?,
+        @Field("ngaysinh") ngaysinh: String?,
+        @Field("gioitinh") gioitinh: Int?,
+        @Field("email") email: String?,
+        @Field("sdt") sdt: String?,
+        @Field("diachi") diachi: String?,
+        @Field("avatar") avatar: Any?
+    ): Call<String>
+
+    @FormUrlEncoded
+    @PUT("/admin/updateInformation/{username}")
+    fun updateAdmin(
+        @Path("username") username: String?,
+        @Field("admin_password") admin_password: String?,
+        @Field("email") email: String?,
+        @Field("sdt") sdt: String?,
+    ): Call<String>
 }

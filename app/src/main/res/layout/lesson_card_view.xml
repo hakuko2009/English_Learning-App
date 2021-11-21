@@ -10,7 +10,7 @@
         android:id="@+id/item"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:elevation="8dp"
+        android:elevation="5dp"
         app:cardElevation="6dp"
         app:cardCornerRadius="8dp"
         android:orientation="horizontal"
@@ -43,7 +43,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_marginVertical="2dp"
+                android:layout_marginVertical="1dp"
                 android:visibility="visible"
                 android:gravity="center_vertical"
                 android:textColor="@color/purple_200"

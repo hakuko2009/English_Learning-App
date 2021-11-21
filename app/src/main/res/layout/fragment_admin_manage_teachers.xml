@@ -24,7 +24,6 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="6dp">
             </androidx.recyclerview.widget.RecyclerView>
-
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 </FrameLayout>

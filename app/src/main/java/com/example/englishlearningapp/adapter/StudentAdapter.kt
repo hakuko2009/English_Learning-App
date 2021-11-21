@@ -34,11 +34,11 @@ class StudentAdapter(private var studentList: List<Student>): RecyclerView.Adapt
     class MyViewHolder(private val binding: StudentCardViewBinding): RecyclerView.ViewHolder(binding.root){
         @SuppressLint("SetTextI18n", "SimpleDateFormat")
         fun bind(student: Student){
-            binding.hvUsername.text = "Tài khoản: " + student.username
-            binding.hvName.text = "Họ và tên: " + student.name
+            binding.hvUsername.text = "Account: " + student.username
+            binding.hvName.text = "Họ tên: " + student.name
             binding.hvEmail.text = "Email: " + student.email
-            val gotDay = SimpleDateFormat("yyyy-dd-MM'T'HH:mm:ss:SSS'Z'").parse(student.dayOfReg)
-            binding.hvRegisterDay.text = "Ngày đăng ký: " + SimpleDateFormat("yyyy-MM-dd").format(gotDay)
+            val gotDay = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(student.dayOfReg!!)
+            binding.hvRegisterDay.text = "Ngày đăng ký: " + SimpleDateFormat("dd-MM-yyyy").format(gotDay!!)
             // 2001-12-11T17:00:00.000Z
         }
     }

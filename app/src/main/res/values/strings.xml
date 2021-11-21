@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">English Learning App</string>
+    <string name="app_name">Learning English App</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -12,4 +12,9 @@
     <string name="student_role">Đăng nhập với tư cách học viên</string>
     <string name="admin_role">Đăng nhập với tư cách admin</string>
     <string name="choose_role">Vui lòng đăng nhập để thực hiện các chức năng khác:</string>
+    <string-array name="gender">
+        <item>Nam</item>
+        <item>Nữ</item>
+        <item>Khác</item>
+    </string-array>
 </resources>

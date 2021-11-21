@@ -32,7 +32,6 @@ class StudentMainActivity: AppCompatActivity() {
             R.id.student_toolbar_seting -> {
 
             }
-
         }
         return super.onOptionsItemSelected(item)
     }
@@ -40,18 +39,20 @@ class StudentMainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_main)
 
-        val intent = intent
         val token = intent.getStringExtra("token").toString()
+        val username = intent.getStringExtra("hv_username").toString()
+        supportActionBar!!.title = "Student Home"
 
         val menu: BottomNavigationView = findViewById(R.id.bottom_navigation)
         menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         lessonFragment = AllLessonsFragment(token)
-        accountFragment = AccountFragment(token)
+        accountFragment = AccountFragment(token, username)
 
         currentFm = lessonFragment
 
-        fm.beginTransaction().add(R.id.student_main_frame_layout, accountFragment, "account").commit()
+        fm.beginTransaction().add(R.id.student_main_frame_layout, accountFragment, "account")
+                        .hide(accountFragment).commit()
         fm.beginTransaction().add(R.id.student_main_frame_layout, lessonFragment, "lessons").commit()
     }
 

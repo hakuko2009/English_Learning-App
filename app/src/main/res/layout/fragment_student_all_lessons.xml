@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:menu="@menu/student_toolbar"
     tools:context=".mvvm.views.student.StudentMainActivity">
 
     <LinearLayout
@@ -22,13 +21,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="6dp">
+                android:layout_marginTop="6dp"
+                android:nestedScrollingEnabled="true">
             </androidx.recyclerview.widget.RecyclerView>
-
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
-
     </LinearLayout>
-
 </FrameLayout>

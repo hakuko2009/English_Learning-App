@@ -14,43 +14,43 @@ data class Student(
 
     @SerializedName("TenHV")
     @Expose
-    var name: String,
+    var name: String?,
 
     @SerializedName("NgaySinh")
     @Expose
-    var dayOfBirth: String,
+    var dayOfBirth: String?,
 
     @SerializedName("GioiTinh")
     @Expose
-    var gender: Boolean,
+    var gender: Int?,
 
     @SerializedName("Email")
     @Expose
-    var email: String,
+    var email: String?,
 
     @SerializedName("SDT")
     @Expose
-    var tel: String,
+    var tel: String?,
 
     @SerializedName("DiaChi")
     @Expose
-    var address: String,
+    var address: String?,
 
     @SerializedName("Avatar")
     @Expose
-    var avatar: String,
+    var avatar: Any?,
 
     @SerializedName("SLBaiDaHoc")
     @Expose
-    var learntLessons: Int,
+    var learntLessons: Int?,
 
     @SerializedName("NgayDK")
     @Expose
-    var dayOfReg: String,
+    var dayOfReg: String?,
 
     @SerializedName("refreshToken")
     @Expose
-    var refreshToken: String,
+    var refreshToken: String?,
 
 )
 

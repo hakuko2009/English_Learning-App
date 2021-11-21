@@ -17,7 +17,6 @@ import com.example.englishlearningapp.`interface`.OnClickListener
 import com.example.englishlearningapp.adapter.LessonAdapter
 import com.example.englishlearningapp.data.models.Lesson
 import com.example.englishlearningapp.mvvm.viewmodels.ManageLessonsViewModel
-import com.example.englishlearningapp.mvvm.views.student.main.LessonDetailActivity
 
 class ManageLessonsFragment constructor(var token: String): Fragment()  {
     private var lessonList: List<Lesson> = ArrayList()
@@ -46,7 +45,7 @@ class ManageLessonsFragment constructor(var token: String): Fragment()  {
         swipeRefreshLayout = view.findViewById(R.id.admin_lessons_swipe_layout)
 
         swipeRefreshLayout.setOnRefreshListener {
-            Handler().postDelayed({ swipeRefreshLayout.isRefreshing = false }, 1500)
+            Handler().postDelayed({ swipeRefreshLayout.isRefreshing = false }, 1000)
             setAdapter()
         }
         setAdapter()
@@ -68,7 +67,7 @@ class ManageLessonsFragment constructor(var token: String): Fragment()  {
                 adapter.setOnClickListener(object: OnClickListener {
                     override fun onClick(itemView: View, lessonId: String) {
                         // detail cua student khac detail cua admin
-                        val intent = Intent(context, LessonDetailActivity::class.java)
+                        val intent = Intent(context, AdminLessonDetailActivity::class.java)
                         intent.putExtra("lessonId", lessonId)
                         startActivity(intent)
                     }

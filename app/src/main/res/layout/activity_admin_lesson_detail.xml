@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.englishlearningapp.mvvm.viewmodels.ManageLessonsViewModel" />
+    </data>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/admin_lesson_detail_swipe_layout">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/checkin_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/image_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginVertical="7dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/lesson" />
+
+                <LinearLayout
+                    android:id="@+id/layout_lessonID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/image_detail"
+                    android:layout_marginVertical="7dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:text="Mã bài học:"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/admin_detail_lesssonID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="18sp"
+                        android:textStyle="bold">
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_lessonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout_lessonID"
+                    android:layout_marginVertical="7dp"
+                    android:orientation="horizontal"
+                    android:outlineSpotShadowColor="@color/cardview_dark_background">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Tên bài học:"
+                        android:textSize="17sp" />
+
+                    <EditText
+                        android:id="@+id/admin_detail_lessonName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:layout_marginRight="40dp"
+                        android:enabled="false"
+                        android:inputType="textMultiLine"
+                        android:textColor="@color/purple_200"
+                        android:textSize="19sp"
+                        app:addTextChangedListener="@{viewModel.lessonNameTextWatcher}">
+                    </EditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_lesson_cate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_lessonName"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Danh mục:"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/admin_detail_lesson_categoryName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_lesson_teacherName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_lesson_cate"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Tạo bởi GV:"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/admin_detail_lessson_teacherName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:hint="Nakahara Chuuya"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_lesson_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_lesson_teacherName"
+                    android:layout_marginVertical="7dp"
+                    android:orientation="horizontal"
+                    android:textStyle="bold">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Nội dung:"
+                        android:textSize="17sp" />
+                    <EditText
+                        android:id="@+id/admin_detail_lessson_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:enabled="false"
+                        android:hint="ABC XYZ"
+                        android:inputType="textMultiLine"
+                        android:textColor="@color/purple_200"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:addTextChangedListener="@{viewModel.lessonContentTextWatcher}" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_lesson_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_lesson_content"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Ngày tạo:"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/admin_detail_lesson_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:hint="yyyy-MM-dd HH:mm:ss"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/score_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_lesson_date"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="Đánh giá:"
+                        android:textSize="17dp" />
+
+                    <TextView
+                        android:id="@+id/admin_detail_lessonScore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="50dp"
+                        android:gravity="center_horizontal"
+                        android:hint="4.5"
+                        android:textColor="@color/yellow"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/edit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/score_layout"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/admin_detail_lesson_edit_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:text="Chỉnh sửa" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/complete_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/score_layout"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_gravity="center"
+                        android:id="@+id/admin_detail_lesson_complete_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Hoàn thành"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/back_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/complete_layout"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/admin_detail_lesson_back_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quay lại" />
+                </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

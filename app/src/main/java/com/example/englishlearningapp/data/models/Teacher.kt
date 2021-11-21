@@ -14,47 +14,46 @@ data class Teacher(
 
     @SerializedName("TenGV")
     @Expose
-    var name: String,
+    var name: String?,
 
     @SerializedName("IDNumber")
     @Expose
-    var idNumb: String,
-
+    var idNumb: String?,
 
     @SerializedName("NgaySinh")
     @Expose
-    var dayOfBirth: String,
+    var dayOfBirth: String?,
 
     @SerializedName("GioiTinh")
     @Expose
-    var gender: Boolean,
+    var gender: Int?,
 
     @SerializedName("Email")
     @Expose
-    var email: String,
+    var email: String?,
 
     @SerializedName("SDT")
     @Expose
-    var tel: String,
+    var tel: String?,
 
     @SerializedName("DiaChi")
     @Expose
-    var address: String,
+    var address: String?,
 
     @SerializedName("DVCT")
     @Expose
-    var workingPlace: String,
+    var workingPlace: String?,
 
     @SerializedName("Avatar")
     @Expose
-    var avatar: String,
+    var avatar: Any?,
 
     @SerializedName("TongSoBaiHoc")
     @Expose
-    var totalLessons: Int,
+    var totalLessons: Int?,
 
     @SerializedName("refreshToken")
     @Expose
-    var refreshToken: String,
+    var refreshToken: String?,
 
 )

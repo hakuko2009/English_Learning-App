@@ -32,13 +32,20 @@ class TeacherAdapter(var teacherList: List<Teacher>): RecyclerView.Adapter<Teach
     }
 
     class MyViewHolder(private val binding: TeacherCardViewBinding): RecyclerView.ViewHolder(binding.root){
-        @SuppressLint("SetTextI18n", "SimpleDateFormat")
+        @SuppressLint("SetTextI18n")
         fun bind(teacher: Teacher){
-            binding.gvUsername.text = "Tài khoản: " + teacher.username
-            binding.gvName.text = "Họ và tên: " + teacher.name
-            binding.gvIdNumb.text = "CMND/CCCD: " + teacher.idNumb
-            binding.gvTel.text = "Tel: " + teacher.email
-            binding.gvEmail.text = "Số bài học: " + teacher.email
+            binding.gvUsername.text = "Account: ${teacher.username}"
+            binding.gvName.text = "Họ tên: ${teacher.name}"
+            binding.gvIdNumb.text = "CMND/CCCD: ${teacher.idNumb}"
+            binding.gvTel.text = "Tel: ${teacher.tel}"
+            binding.gvEmail.text = when(teacher.totalLessons){
+                null -> {
+                    "Chưa có bài học"
+                }
+                else -> {
+                    "Số bài học: ${teacher.totalLessons.toString()}"
+                }
+            }
         }
     }
 }

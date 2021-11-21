@@ -19,7 +19,7 @@ class Service {
             interceptor.level = HttpLoggingInterceptor.Level.BODY
             return interceptor
         }
-        val lists = listOf(ConnectionSpec.COMPATIBLE_TLS, ConnectionSpec.CLEARTEXT);
+        private val lists = listOf(ConnectionSpec.COMPATIBLE_TLS, ConnectionSpec.CLEARTEXT);
         private val client = OkHttpClient.Builder()
             .connectionSpecs(lists)
             .addInterceptor(customInterceptor())

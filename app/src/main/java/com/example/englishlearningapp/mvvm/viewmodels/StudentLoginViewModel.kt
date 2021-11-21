@@ -54,7 +54,7 @@ class StudentLoginViewModel(private val callBack: LoginResultCallBack): ViewMode
                     val jsonObject = JSONObject(resBody).toString()
                     val result: StudentLogin = gson.fromJson(jsonObject, StudentLogin::class.java)
 
-                    callBack.onSuccess(result.accessToken.toString())
+                    callBack.onSuccess(result.accessToken.toString(), login.username)
                 }else if(response.code() == 401){
                     callBack.onError("Tên đăng nhập không tồn tại hoặc mật khẩu không chính xác")
                 }

@@ -19,7 +19,7 @@ class ManageStudentsViewModel: ViewModel() {
     val gson = Gson()
 
     fun getStudentList(token: String){
-        api.getAllLessons(token = "Bearer $token").enqueue(object: Callback<String> {
+        api.getAllStudents(token = "Bearer $token").enqueue(object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response.isSuccessful){
                     val responseBody = response.body()!!.toString()
@@ -44,19 +44,18 @@ class ManageStudentsViewModel: ViewModel() {
     }
 
     fun getStudentDetail(username: String){
-        api.getLessonDetail(username).enqueue(object: Callback<String> {
+        api.getStudentDetail(username).enqueue(object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response.isSuccessful){
                     val responseBody = response.body()!!.toString()
-                    val rawLesson = JSONObject(responseBody).toString()
-                    val student: Student = gson.fromJson(rawLesson, Student::class.java)
+                    val rawStudent = JSONObject(responseBody).toString()
+                    val student: Student = gson.fromJson(rawStudent, Student::class.java)
 
                     liveStudent.value = student
                 }else {
                     Log.d("FAILED TAG", response.code().toString())
                 }
             }
-
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("FAILED TAG", t.message.toString())
             }

@@ -18,7 +18,6 @@ import com.example.englishlearningapp.adapter.LessonAdapter
 import com.example.englishlearningapp.data.models.Lesson
 import com.example.englishlearningapp.mvvm.viewmodels.AllLessonViewModel
 
-
 class AllLessonsFragment constructor(var token: String): Fragment() {
     private var lessonList: List<Lesson> = ArrayList()
     private lateinit var recyclerView: RecyclerView
@@ -52,6 +51,11 @@ class AllLessonsFragment constructor(var token: String): Fragment() {
         setAdapter()
     }
 
+    override fun onResume() {
+        super.onResume()
+        setAdapter()
+    }
+
     private fun setAdapter(){
         viewModel.getAllLessons(token)
         viewModel.liveLessonList.observe(viewLifecycleOwner, {
@@ -67,7 +71,7 @@ class AllLessonsFragment constructor(var token: String): Fragment() {
 
                 adapter.setOnClickListener(object: OnClickListener {
                     override fun onClick(itemView: View, lessonId: String) {
-                        val intent = Intent(context, LessonDetailActivity::class.java)
+                        val intent = Intent(context, StudentLessonDetailActivity::class.java)
                         intent.putExtra("lessonId", lessonId)
                         startActivity(intent)
                     }

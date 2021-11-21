@@ -9,7 +9,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/item"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:layout_marginHorizontal="5dp"
         android:layout_marginVertical="6dp"
         android:elevation="8dp"
@@ -19,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="5dp"
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="85dp"
+            android:layout_marginLeft="85dp"
             android:layout_marginVertical="5dp"
             android:orientation="vertical">
 
@@ -45,16 +45,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginVertical="2dp"
-                android:text="Tài khoản: "
+                android:layout_marginVertical="4dp"
+                android:text="Account: "
                 android:textAllCaps="false"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/purple_500"
+                android:textColor="@color/yellow"
                 android:textSize="18sp"
                 android:textStyle="bold">
             </TextView>
 
             <TextView
+                android:layout_marginVertical="4dp"
                 android:id="@+id/hv_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginVertical="2dp"
+                android:layout_marginVertical="4dp"
                 android:text="Email"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/black"
@@ -84,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginVertical="2dp"
+                android:layout_marginVertical="4dp"
                 android:text="Ngay dang ky: "
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/black"
