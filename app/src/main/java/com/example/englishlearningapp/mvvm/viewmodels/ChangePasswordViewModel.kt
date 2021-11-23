@@ -1,4 +1,7 @@
 package com.example.englishlearningapp.mvvm.viewmodels
 
-class ChangePasswordViewModel {
+import androidx.lifecycle.ViewModel
+
+class ChangePasswordViewModel: ViewModel() {
+
 }
